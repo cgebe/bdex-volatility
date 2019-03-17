@@ -75,7 +75,7 @@ func FetchCandles(start time.Time, end time.Time, market string) []Candle {
 		params.Set("interval", "5m")
 		params.Set("startTime", strconv.FormatInt(start.UnixNano()/1000000, 10))
 		params.Set("endTime", strconv.FormatInt(start.Add(shift).UnixNano()/1000000, 10))
-		params.Set("limit", "1000")
+		params.Set("limit", "288")
 
 		var cs [][]interface{}
 		err := SendHTTPGetRequest(fmt.Sprintf("%s/%s?%s", URL, "api/v1/klines", params.Encode()), true, false, &cs)
